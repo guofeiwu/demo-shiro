@@ -4,6 +4,8 @@ import com.guofei.wu.vo.User;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.subject.Subject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,5 +33,21 @@ public class LoginController {
         }
         return "login success";
     }
+
+
+    @RequiresRoles("admin")
+    @RequestMapping(value = "/testRoles", method = RequestMethod.GET)
+    @ResponseBody
+    public String testRoles() {
+        return "test roles success";
+    }
+
+    @RequiresPermissions(value = {"delete"})
+    @RequestMapping(value = "/testPermissions", method = RequestMethod.GET)
+    @ResponseBody
+    public String testPermissions() {
+        return "test permissions success";
+    }
+
 
 }

@@ -25,8 +25,8 @@ public class CustomRealm extends AuthorizingRealm {
     Map<String, String> map = new HashMap(16);
 
     {
-        map.put("tom", "123456");
-        map.put("jack", "123456");
+        map.put("tom", "e10adc3949ba59abbe56e057f20f883e");
+        map.put("jack", "e10adc3949ba59abbe56e057f20f883e");
     }
 
 

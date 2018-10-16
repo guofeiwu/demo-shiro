@@ -21,5 +21,16 @@
         <property name="realm" ref="customRealm"/>
     </bean>
 
-    <bean class="com.guofei.wu.realm.CustomRealm" id="customRealm"></bean>
+    <bean class="com.guofei.wu.realm.CustomRealm" id="customRealm">
+        <property name="credentialsMatcher" ref="credentialsMatcher"/>
+    </bean>
+
+    <bean class="org.apache.shiro.authc.credential.HashedCredentialsMatcher" id="credentialsMatcher">
+        <property name="hashAlgorithmName" value="md5"/>
+        <property name="hashIterations" value="1"/>
+    </bean>
+
+
+
+
 </beans>
