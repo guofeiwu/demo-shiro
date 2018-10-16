@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * @author 吴国飞 (guofei.wu@ucarinc.com)
- * @author 吴国飞 (guofei.wu@ucarinc.com)
+ * @author 吴国飞 (guofei.wu)
+ * @author 吴国飞 (guofei.wu)
  * @version 2018/10/15
  * @since 2018/10/15
  */
@@ -42,11 +42,25 @@ public class LoginController {
         return "test roles success";
     }
 
-    @RequiresPermissions(value = {"delete"})
+    @RequiresRoles("admin")
+    @RequestMapping(value = "/testRoles1", method = RequestMethod.GET)
+    @ResponseBody
+    public String testRoles1() {
+        return "test roles1 success";
+    }
+
+    @RequiresPermissions(value = {"user:delete"})
     @RequestMapping(value = "/testPermissions", method = RequestMethod.GET)
     @ResponseBody
     public String testPermissions() {
         return "test permissions success";
+    }
+
+    @RequiresPermissions(value = {"user:delete"})
+    @RequestMapping(value = "/testPermissions1", method = RequestMethod.GET)
+    @ResponseBody
+    public String testPermissions1() {
+        return "test permissions1 success";
     }
 
 
