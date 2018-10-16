@@ -5,8 +5,10 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.SimpleAuthenticationInfo;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.authz.SimpleAuthorizationInfo;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 
@@ -26,8 +28,8 @@ public class CustomRealm extends AuthorizingRealm {
     Map<String, String> map = new HashMap(16);
 
     {
-        map.put("tom", "123456");
-        map.put("jack", "123456");
+        map.put("tom", "e10adc3949ba59abbe56e057f20f883e");
+        map.put("jack", "e10adc3949ba59abbe56e057f20f883e");
     }
 
 
@@ -98,4 +100,17 @@ public class CustomRealm extends AuthorizingRealm {
     private String getPasswordByUserName(String username) {
         return map.get(username);
     }
+
+
+    public static void main(String[] args) {
+
+        Md5Hash hash = new Md5Hash("123456");
+        hash.setIterations(1);
+        System.out.println(hash.toString());
+//        hash.setSalt();
+
+
+    }
+
+
 }

@@ -4,6 +4,7 @@ import com.guofei.wu.realm.CustomRealm;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.authc.credential.HashedCredentialsMatcher;
 import org.apache.shiro.mgt.DefaultSecurityManager;
 import org.apache.shiro.subject.Subject;
 import org.junit.Test;
@@ -29,6 +30,12 @@ public class CustomRealmTest {
 
         // 设置security manager
         SecurityUtils.setSecurityManager(defaultSecurityManager);
+
+        // shiro 加密
+        HashedCredentialsMatcher matcher = new HashedCredentialsMatcher();
+        matcher.setHashAlgorithmName("md5");
+        matcher.setHashIterations(1);
+        customRealm.setCredentialsMatcher(matcher);
 
         // 构建认证主体
         Subject subject = SecurityUtils.getSubject();
