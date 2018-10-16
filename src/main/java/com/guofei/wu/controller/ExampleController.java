@@ -7,8 +7,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * @author 吴国飞 (guofei.wu@ucarinc.com)
- * @author 吴国飞 (guofei.wu@ucarinc.com)
+ * @author 吴国飞 (guofei.wu)
+ * @author 吴国飞 (guofei.wu)
  * @version 2018/9/28
  * @since 2018/9/28
  */

@@ -18,8 +18,8 @@ import java.util.Map;
 import java.util.Set;
 
 /**
- * @author 吴国飞 (guofei.wu@ucarinc.com)
- * @author 吴国飞 (guofei.wu@ucarinc.com)
+ * @author 吴国飞 (guofei.wu)
+ * @author 吴国飞 (guofei.wu)
  * @version 2018/10/12
  * @since 2018/10/12
  */
